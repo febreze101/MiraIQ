@@ -1,31 +1,30 @@
 
 
-import { View } from "react-native"
+import { View, useColorScheme } from "react-native"
 import { Image } from "react-native"
-import { Button, Text } from "react-native-paper"
+import { Avatar, Button, Text } from "react-native-paper"
 import {Modal, Portal} from "react-native-paper"
 import { useNavigation } from "expo-router"
+import { Colors } from "@/constants/Colors"
 
 export default function Profile() {
     const navigation = useNavigation()
-
+    const colorScheme = useColorScheme();
 
     return (
         <>
                 <View
                     style={{
                         alignItems: 'center',
-
+                        height: "100%",
+                        backgroundColor: colorScheme === "dark" ? Colors.dark.colors.surface : Colors.light.colors.surface 
                     }}
                 >
-                    <Text style={{ fontWeight: 'bold', color: '#3e3e3e' }}>PROFILE</Text>
+                    <Text style={{ marginTop: 32, marginBottom: 32, fontWeight: 'bold', color: colorScheme === 'dark' ? Colors.dark.colors.secondaryText : Colors.light.colors.secondaryText }}>P R O F I L E</Text>
 
-                    {/* TODO: Replace with Avatar */}
-                    <Image
-                        source={require('../assets/images/profile.png')}
-                        style={{ width: 120, height: 120, marginTop: 25 }}
-                    />
-                    <Text style={{ fontWeight: 'bold', color: '#3e3e3e' }} variant="headlineSmall">Welcome User!</Text>
+
+                    <Avatar.Icon style={{marginBottom: 16}} size={120} icon="account" />
+                    <Text style={{ fontWeight: 'bold' }} variant="headlineSmall">Welcome User!</Text>
 
                     <View
                         style={{
@@ -36,7 +35,7 @@ export default function Profile() {
                     >
                         <Button 
                             mode="outlined" 
-                            style={{ marginTop: 88 }} 
+                            style={{ marginTop: 80 }} 
                             onPress={() => navigation.navigate('ProfileUpdates/profileUpdate')} 
                         >
                             Change Personal Info
@@ -44,7 +43,7 @@ export default function Profile() {
 
                         <Button 
                             mode="outlined" 
-                            style={{ marginTop: 16 }} 
+                            style={{ marginTop: 24 }} 
                             onPress={() => navigation.navigate('ProfileUpdates/profileEmailUpdate')} 
                         >
                              Change Email
@@ -52,7 +51,7 @@ export default function Profile() {
 
                         <Button 
                             mode="outlined" 
-                            style={{ marginTop: 16 }} 
+                            style={{ marginTop: 24 }} 
                             onPress={() => navigation.navigate('ProfileUpdates/profilePasswordUpdate')} 
                         >
                             Change Password

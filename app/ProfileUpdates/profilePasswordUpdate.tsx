@@ -1,5 +1,6 @@
+import { Colors } from "@/constants/Colors";
 import { useState } from "react"
-import { View } from "react-native"
+import { View, useColorScheme } from "react-native"
 import { Button, Text, TextInput } from "react-native-paper"
 
 export default function ProfilePasswordUpdate() {
@@ -9,18 +10,20 @@ export default function ProfilePasswordUpdate() {
     const [confirmPassword, setConfirmPassword] = useState('');
 
     const [showPassword, setShowPassword] = useState(false);
-
+    const colorScheme = useColorScheme();
+    
     return (
         <>
             <View
                 style={{
-                    display: 'flex',
+                    flex: 1,
                     flexDirection: 'column',
-                    justifyContent: "center",
+                    justifyContent: "flex-start",
                     alignItems: "center",
+                    backgroundColor: colorScheme === "dark" ? Colors.dark.colors.surface : Colors.light.colors.surface 
                 }}
             >
-                <Text style={{ color: '#3e3e3e', fontWeight: 'bold', marginTop: 16, marginBottom: 64 }} variant="displaySmall" >Change Password</Text>
+                <Text style={{ fontWeight: 'bold', marginTop: 16, marginBottom: 64 }} variant="displaySmall" >Change Password</Text>
 
                 <View
                     style={{

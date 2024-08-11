@@ -1,6 +1,7 @@
+import { Colors } from "@/constants/Colors";
 import { useNavigation } from "expo-router";
 import { useState } from "react"
-import { View } from "react-native"
+import { View, useColorScheme } from "react-native"
 import { Text, TextInput, Button } from "react-native-paper"
 
 export default function ProfileEmailUpdate() {
@@ -8,18 +9,22 @@ export default function ProfileEmailUpdate() {
     const [newEmail, setNewEmail] = useState('');
 
     const navigation = useNavigation();
+    const colorScheme = useColorScheme();
 
     return (
         <>
             <View
                 style={{
-                    display: 'flex',
+                    // display: 'flex',
+                    flex: 1,
                     flexDirection: 'column',
-                    justifyContent: "center",
+                    justifyContent: "flex-start",
                     alignItems: "center",
+                    // height: "100%",
+                    backgroundColor: colorScheme === "dark" ? Colors.dark.colors.surface : Colors.light.colors.surface 
                 }}
             >
-                <Text style={{ color: '#3e3e3e', fontWeight: 'bold', marginTop: 16, marginBottom: 64 }} variant="displaySmall" >Change Email</Text>
+                <Text style={{ fontWeight: 'bold', marginTop: 16, marginBottom: 64 }} variant="displaySmall" >Change Email</Text>
 
                 <View
                     style={{

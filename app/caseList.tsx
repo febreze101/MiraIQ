@@ -1,8 +1,10 @@
-import { ScrollView, View } from "react-native"
+import { ScrollView, View, useColorScheme } from "react-native"
 import React, { useState } from "react"
-import { SegmentedButtons, Text, ToggleButton } from "react-native-paper"
+import { SegmentedButtons, Text, ToggleButton, useTheme } from "react-native-paper"
 import { Dropdown, DropdownInput } from "react-native-paper-dropdown"
 import CaseItem from "@/components/CaseItem"
+import { Colors } from "@/constants/Colors"
+import { useEffect } from "react"
 
 // const Drawer = createDrawerNavigator()
 const OPTIONS = [
@@ -13,22 +15,26 @@ const OPTIONS = [
   ];
 
 export default function CaseList() {
+    
+    const colorScheme = useColorScheme();
 
     const [value, setValue] = React.useState<string>('thisMonth');
     const [dropdownOption, setDropdownOption] = useState<string>();
 
+    
     return (
         <>
-        <View style={{ flex: 1 }} >
+        <View style={{ flex: 1, backgroundColor: colorScheme === "dark" ? Colors.dark.colors.surface : Colors.light.colors.surface }} >
             <View
                 style={{
                     flex: 1,
                     flexDirection: 'column',
                     justifyContent: "flex-start",
                     alignItems: "center",
+                    
                 }}
             >
-                <Text style={{ color: '#3e3e3e', fontWeight: 'bold', marginTop: 64, marginBottom: 32 }} variant="labelLarge" >CASE LIST</Text>
+                <Text style={{ fontWeight: 'bold', marginTop: 32, marginBottom: 32, color: colorScheme === 'dark' ? Colors.dark.colors.secondaryText : Colors.light.colors.secondaryText, }} variant="labelLarge" >CASE LIST</Text>
                 <View
                     style={{
                         width: '90%'
@@ -50,8 +56,8 @@ export default function CaseList() {
                                 alignItems: "center",
                             }}
                         >
-                            <Text style={{ color: '#3e3e3e', fontWeight: 'bold' }} variant="displayMedium">30 min</Text>
-                            <Text style={{ color: '#3e3e3e' }} >AVG. case time</Text>
+                            <Text style={{ fontWeight: 'bold' }} variant="displayMedium">30 min</Text>
+                            <Text style={{ }} >AVG. case time</Text>
                         </View>
                         <View
                             style={{
@@ -59,8 +65,8 @@ export default function CaseList() {
                                 alignItems: "center",
                             }}
                         >
-                            <Text style={{ color: '#3e3e3e', fontWeight: 'bold' }} variant="displayMedium">100</Text>
-                            <Text style={{ color: '#3e3e3e' }} >Total Cases</Text>
+                            <Text style={{ fontWeight: 'bold' }} variant="displayMedium">100</Text>
+                            <Text style={{  }} >Total Cases</Text>
                         </View>
                     </View>
 
@@ -75,7 +81,7 @@ export default function CaseList() {
                             marginBottom: 16
                         }}
                     >
-                        <Text style={{ color: '#3e3e3e', fontWeight: 'bold' }} variant="headlineLarge">*** Placeholder for barGraph ***</Text>
+                        <Text style={{  fontWeight: 'bold' }} variant="headlineLarge">*** Placeholder for barGraph ***</Text>
                     </View>
 
                     {/* Case Selection */}
@@ -92,19 +98,26 @@ export default function CaseList() {
                                 {
                                     value: 'allTime',
                                     label: 'All Time',
+                                    uncheckedColor: 'rgba(0, 167, 211, 1)',
+                                    style: {
+                                        // backgroundColor: 'rgba(0, 167, 211, 1)'
+                                    }
                                 },
                                 {
                                     value: 'thisMonth',
                                     label: 'This Month',
+                                    uncheckedColor: 'rgba(0, 167, 211, 1)'
                                 },
                                 { 
                                     value: 'thisWeek', 
-                                    label: 'This Week' 
+                                    label: 'This Week', 
+                                    uncheckedColor: 'rgba(0, 167, 211, 1)'
                                 },
                             ]}
                             style={{
                                 marginBottom: 24
                             }}
+                            
                         />    
                         <Dropdown 
                             label='Sort by'

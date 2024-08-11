@@ -4,6 +4,7 @@ import CaseSummary from "./caseSummary";
 import CaseStats from './caseStats';
 import CaseVideoPage from './caseVideoPage';
 import { useState } from "react";
+import { Easing } from "react-native";
 
 
 export default function CaseDetails() {
@@ -24,9 +25,12 @@ export default function CaseDetails() {
     return (
         <>
             <BottomNavigation 
+                sceneAnimationType="shifting"
+                sceneAnimationEasing={Easing.sin}
                 navigationState={{ index, routes}}
                 onIndexChange={setIndex}
                 renderScene={renderScene}
+                keyboardHidesNavigationBar
             />
         </>
     )

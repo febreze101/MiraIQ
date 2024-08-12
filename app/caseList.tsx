@@ -6,6 +6,8 @@ import CaseItem from "@/components/CaseItem"
 import { Colors } from "@/constants/Colors"
 import { useEffect } from "react"
 
+import StatsData from '../assets/Data/ScoreDataStats.json'
+
 // const Drawer = createDrawerNavigator()
 const OPTIONS = [
     { label: 'Most Recent', value: 'recent' },
@@ -21,6 +23,9 @@ export default function CaseList() {
     const [value, setValue] = React.useState<string>('thisMonth');
     const [dropdownOption, setDropdownOption] = useState<string>();
 
+    console.log(JSON.stringify(StatsData.length));
+    
+
     
     return (
         <>
@@ -31,7 +36,6 @@ export default function CaseList() {
                     flexDirection: 'column',
                     justifyContent: "flex-start",
                     alignItems: "center",
-                    
                 }}
             >
                 <Text style={{ fontWeight: 'bold', marginTop: 32, marginBottom: 32, color: colorScheme === 'dark' ? Colors.dark.colors.secondaryText : Colors.light.colors.secondaryText, }} variant="labelLarge" >CASE LIST</Text>
@@ -130,6 +134,8 @@ export default function CaseList() {
 
                     {/* Case List */}
                     <ScrollView  style={{ flexGrow: 1 }}>
+                        
+
                         <CaseItem type={'Sigmoid Colectomy'} duration={100} id={'RG7100'} date="09/21/33" time='9:21 AM' />
                         <CaseItem type={'Sigmoid Colectomy'} duration={100} id={'RG7100'} date="09/21/33" time='9:21 AM' />
                         <CaseItem type={'Sigmoid Colectomy'} duration={100} id={'RG7100'} date="09/21/33" time='9:21 AM' />

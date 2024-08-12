@@ -1,26 +1,30 @@
+import { Colors } from "@/constants/Colors"
 import { useState } from "react"
-import { View } from "react-native"
+import { View, useColorScheme } from "react-native"
 import { Text, TextInput, Button } from "react-native-paper"
 
 export default function ProfileUpdate() {
     const [newName, setNewName] = useState('')
     const [newLastName, setNewLastName] = useState('')
+    const colorScheme = useColorScheme();
 
     return (
         <>
             <View
                 style={{
-                    display: 'flex',
+                    flex: 1,
                     flexDirection: 'column',
-                    justifyContent: "center",
+                    justifyContent: "flex-start",
                     alignItems: "center",
+                    backgroundColor: colorScheme === "dark" ? Colors.dark.colors.surface : Colors.light.colors.surface 
                 }}
             >
-                <Text style={{ color: '#3e3e3e', fontWeight: 'bold', marginTop: 16, marginBottom: 64 }} variant="displaySmall" >Change Personal Information</Text>
+                <Text style={{ fontWeight: 'bold', marginTop: 16, marginBottom: 64 }} variant="displaySmall" >Change Personal Information</Text>
 
                 <View
                     style={{
                         width: '90%',
+                        // justifyContent: "center",
                     }}
                 >
 

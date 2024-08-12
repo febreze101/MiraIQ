@@ -1,7 +1,7 @@
 import { DrawerContentScrollView, DrawerItem, DrawerItemList } from "@react-navigation/drawer"
 import { useRouter } from "expo-router";
 import { View, Text, Image } from "react-native";
-import { Button } from "react-native-paper";
+import { Avatar, Button } from "react-native-paper";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import Icon from '@mdi/react';
 import { mdiAccountCircle } from '@mdi/js';
@@ -23,11 +23,12 @@ export default function CustomDrawer(props: any) {
             >
                 {/* profile pic and welcome message */}
                 <View style={{ marginLeft: 16, marginBottom: 36 }}>
-                    <Image
+                    {/* <Image
                         source={require('../assets/images/profile.png')}
                         style={{ width: 68, height: 68, alignSelf: 'left', marginTop: 25 }}
-                    />
-                    <Text style={{ fontWeight: 'bold', color: '#3e3e3e' }} variant="headlineSmall">Welcome User!</Text>
+                    /> */}
+                    <Avatar.Icon size={68} icon="account" />
+                    <Text style={{ fontWeight: 'bold', color: 'white'}} variant="headlineSmall">Welcome User!</Text>
                 </View>
 
                 {/* drawer items */}
@@ -45,6 +46,7 @@ export default function CustomDrawer(props: any) {
                     onPress={() => navigation.navigate('login')}
                     activeBackgroundColor="#262626"
                     activeTintColor="#fff"
+                    labelStyle={{ color: '#fff' }}
                 />
                 {/* <Text>Footer</Text> */}
             </View>

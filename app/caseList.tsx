@@ -9,6 +9,7 @@ import { Dropdown, DropdownInput } from 'react-native-paper-dropdown';
 import CaseItem from '@/components/CaseItem';
 import { Colors } from '@/constants/Colors';
 import { useEffect } from 'react';
+import {Dimensions} from 'react-native';
 
 import StatsData from '../assets/Data/ScoreDataStats.json';
 
@@ -28,6 +29,8 @@ export default function CaseList() {
     const [dropdownOption, setDropdownOption] = useState<string>();
 
     console.log(JSON.stringify(StatsData.length));
+
+    const windowWidth = Dimensions.get('window').width;
 
     const [loaded, error] = useFonts({
         Poppins_500Medium,
@@ -125,7 +128,7 @@ export default function CaseList() {
                                 xAxisColor={'white'}
                                 frontColor={'#00A7D3'}
                                 barWidth={10} 
-                                width={400}/>
+                                width={windowWidth-200}/>
                         </View>
 
                         {/* Case Selection */}

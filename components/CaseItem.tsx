@@ -1,3 +1,6 @@
+
+import { useFonts, Poppins_500Medium } from "@expo-google-fonts/poppins"
+
 import { Colors } from '@/constants/Colors';
 import { useNavigation } from 'expo-router';
 import { TouchableHighlight, View, useColorScheme } from 'react-native';
@@ -14,6 +17,11 @@ interface CaseItemProps {
 export default function CaseItem({ type, duration, id, date, time }: CaseItemProps) {
     const navigation = useNavigation();
     const colorScheme = useColorScheme();
+
+    const [loaded, error] = useFonts({
+        Poppins_500Medium,
+    })
+
 
     return (
         <>
@@ -33,71 +41,83 @@ export default function CaseItem({ type, duration, id, date, time }: CaseItemPro
                 }}
                 onPress={() => navigation.navigate('CaseDetails/caseDetail')}
             >
-                <View
-                    style={{
-                        // flex: 1,
-                        width: '80%',
-                    }}
-                >
-                    {/* Case Type */}
-                    <Text style={{ fontWeight: 'bold', color: colorScheme === 'dark' ? 'white' : 'black' }} variant="headlineSmall">
-                        {type}
-                    </Text>
+                <View style={{ width: '100%', flexDirection: 'row', alignItems: 'center'}}>
 
-                    {/* Case Info */}
                     <View
                         style={{
-                            flex: 1,
-                            flexDirection: 'row',
-                            width: '100%',
-                            marginTop: 8,
+                            width: '90%',
                         }}
                     >
-                        <Text
+                        {/* Case Type */}
+                        <Text style={{ fontFamily: 'Poppins_500Medium', fontWeight: 'bold', color: colorScheme === 'dark' ? 'white' : 'black'}} variant="headlineSmall">
+                            {type}
+                        </Text>
+
+                        {/* Case Info */}
+                        <View
                             style={{
-                                color: colorScheme === 'dark' ? Colors.dark.colors.tertiaryText : Colors.light.colors.tertiaryText,
+                                flex: 1,
+                                flexDirection: 'row',
+                                width: '100%',
+                                marginTop: 8,
                             }}
                         >
-                            Duration: {duration} min
-                        </Text>
-                        <Text
+                            <Text
+                                style={{
+                                    fontFamily: 'Poppins_500Medium',
+                                    color: colorScheme === 'dark' ? Colors.dark.colors.tertiaryText : Colors.light.colors.tertiaryText,
+                                }}
+                            >
+                                Duration: {duration} min
+                            </Text>
+                            <Text
+                                style={{
+                                    fontFamily: 'Poppins_500Medium',
+                                    marginLeft: 16,
+                                    color: colorScheme === 'dark' ? Colors.dark.colors.tertiaryText : Colors.light.colors.tertiaryText,
+                                }}
+                            >
+                                Case ID: {id}
+                            </Text>
+                        </View>
+
+                        {/* Case Date Time */}
+                        <View
                             style={{
-                                marginLeft: 16,
-                                color: colorScheme === 'dark' ? Colors.dark.colors.tertiaryText : Colors.light.colors.tertiaryText,
+                                fontFamily: 'Poppins_500Medium',
+                                flex: 1,
+                                flexDirection: 'row',
+                                width: '25%',
+                                justifyContent: 'space-between',
+                                marginTop: 8,
                             }}
                         >
-                            Case ID: {id}
-                        </Text>
+                            <Text
+                                style={{
+                                    fontFamily: 'Poppins_500Medium',
+                                    color:
+                                        colorScheme === 'dark' ? Colors.dark.colors.secondaryText : Colors.light.colors.secondaryText,
+                                }}
+                            >
+                                {date}
+                            </Text>
+                            <Text
+                                style={{
+                                    fontFamily: 'Poppins_500Medium',
+                                    marginLeft: 16,
+                                    color: colorScheme === 'dark' ? Colors.dark.colors.tertiaryText : Colors.light.colors.tertiaryText,
+                                }}
+                            >
+                                {time}
+                            </Text>
+                        </View>
                     </View>
 
-                    {/* Case Date Time */}
-                    <View
-                        style={{
-                            flex: 1,
-                            flexDirection: 'row',
-                            width: '25%',
-                            justifyContent: 'space-between',
-                            marginTop: 8,
-                        }}
-                    >
-                        <Text
-                            style={{
-                                color:
-                                    colorScheme === 'dark' ? Colors.dark.colors.secondaryText : Colors.light.colors.secondaryText,
-                            }}
-                        >
-                            {date}
-                        </Text>
-                        <Text
-                            style={{
-                                marginLeft: 16,
-                                color: colorScheme === 'dark' ? Colors.dark.colors.tertiaryText : Colors.light.colors.tertiaryText,
-                            }}
-                        >
-                            {time}
-                        </Text>
+                    <View >
+                        <Icon source={'chevron-right'} size={30} />
                     </View>
                 </View>
+
             </TouchableHighlight>
         </>
     );

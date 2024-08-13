@@ -6,7 +6,7 @@ module.exports = function (api) {
       production: {
         plugins: [
           'react-native-paper/babel',
-          'react-native-reanimator/plugin'
+          'react-native-reanimator/plugin',
         ],
       },
     },

@@ -1,15 +1,16 @@
-import { ScrollView, View, useColorScheme } from "react-native"
-import React, { useState } from "react"
-import { SegmentedButtons, Text, ToggleButton, useTheme } from "react-native-paper"
-import { Dropdown, DropdownInput } from "react-native-paper-dropdown"
-import CaseItem from "@/components/CaseItem"
-import { Colors } from "@/constants/Colors"
-import { useEffect } from "react"
+
 import { useFonts, Poppins_500Medium } from "@expo-google-fonts/poppins"
 // import { CartesianChart, Bar } from 'victory-native'
 import { BarChart } from 'react-native-gifted-charts'
+import { ScrollView, View, useColorScheme } from 'react-native';
+import React, { useState } from 'react';
+import { SegmentedButtons, Text, ToggleButton, useTheme } from 'react-native-paper';
+import { Dropdown, DropdownInput } from 'react-native-paper-dropdown';
+import CaseItem from '@/components/CaseItem';
+import { Colors } from '@/constants/Colors';
+import { useEffect } from 'react';
 
-import StatsData from '../assets/Data/ScoreDataStats.json'
+import StatsData from '../assets/Data/ScoreDataStats.json';
 
 // const Drawer = createDrawerNavigator()
 const OPTIONS = [
@@ -57,7 +58,6 @@ export default function CaseList() {
                                 width: '100%',
                                 justifyContent: 'space-evenly',
                                 marginBottom: 16,
-                                // backgroundColor: '#540000'
                             }}
                         >
                             <View
@@ -87,7 +87,7 @@ export default function CaseList() {
                         {/* Bargraph Section */}
                         <View
                             style={{
-                                alignItems: "center",
+                                alignItems: 'center',
                                 width: '100%',
                                 marginTop: 16,
                                 marginBottom: 16,
@@ -132,7 +132,7 @@ export default function CaseList() {
                         <View
                             style={{
                                 width: '100%',
-                                marginBottom: 16
+                                marginBottom: 16,
                             }}
                         >
                             <SegmentedButtons
@@ -146,9 +146,8 @@ export default function CaseList() {
                                             fontFamily: 'Poppins_500Medium'
                                         },
                                         uncheckedColor: 'rgba(0, 167, 211, 1)',
-                                        style: {
-                                            // backgroundColor: 'rgba(0, 167, 211, 1)'
-                                        }
+                                        checkedColor: 'white',
+                                   
                                     },
                                     {
                                         value: 'thisMonth',
@@ -156,7 +155,8 @@ export default function CaseList() {
                                         labelStyle: {
                                             fontFamily: 'Poppins_500Medium'
                                         },
-                                        uncheckedColor: 'rgba(0, 167, 211, 1)'
+                                        uncheckedColor: 'rgba(0, 167, 211, 1)',
+                                        checkedColor: 'white',
                                     },
                                     {
                                         value: 'thisWeek',
@@ -164,17 +164,16 @@ export default function CaseList() {
                                         labelStyle: {
                                             fontFamily: 'Poppins_500Medium'
                                         },
-                                        uncheckedColor: 'rgba(0, 167, 211, 1)'
+                                        uncheckedColor: 'rgba(0, 167, 211, 1)',
+                                        checkedColor: 'white',
                                     },
                                 ]}
                                 style={{
                                     marginBottom: 24,
-
                                 }}
-
                             />
                             <Dropdown
-                                label='Sort by'
+                                label="Sort by"
                                 placeholder="Sort by"
                                 options={OPTIONS}
                                 value={dropdownOption}
@@ -184,25 +183,22 @@ export default function CaseList() {
 
                         {/* Case List */}
                         <ScrollView style={{ flexGrow: 1 }}>
-
-
-                            <CaseItem type={'Sigmoid Colectomy'} duration={100} id={'RG7100'} date="09/21/33" time='9:21 AM' />
-                            <CaseItem type={'Sigmoid Colectomy'} duration={100} id={'RG7100'} date="09/21/33" time='9:21 AM' />
-                            <CaseItem type={'Sigmoid Colectomy'} duration={100} id={'RG7100'} date="09/21/33" time='9:21 AM' />
-                            <CaseItem type={'Sigmoid Colectomy'} duration={100} id={'RG7100'} date="09/21/33" time='9:21 AM' />
-                            <CaseItem type={'Sigmoid Colectomy'} duration={100} id={'RG7100'} date="09/21/33" time='9:21 AM' />
-                            <CaseItem type={'Sigmoid Colectomy'} duration={100} id={'RG7100'} date="09/21/33" time='9:21 AM' />
-                            <CaseItem type={'Sigmoid Colectomy'} duration={100} id={'RG7100'} date="09/21/33" time='9:21 AM' />
-                            <CaseItem type={'Sigmoid Colectomy'} duration={100} id={'RG7100'} date="09/21/33" time='9:21 AM' />
-                            <CaseItem type={'Sigmoid Colectomy'} duration={100} id={'RG7100'} date="09/21/33" time='9:21 AM' />
-                            <CaseItem type={'Sigmoid Colectomy'} duration={100} id={'RG7100'} date="09/21/33" time='9:21 AM' />
-                            <CaseItem type={'Sigmoid Colectomy'} duration={100} id={'RG7100'} date="09/21/33" time='9:21 AM' />
-                            <CaseItem type={'Sigmoid Colectomy'} duration={100} id={'RG7100'} date="09/21/33" time='9:21 AM' />
-                            <CaseItem type={'Sigmoid Colectomy'} duration={100} id={'RG7100'} date="09/21/33" time='9:21 AM' />
+                            {StatsData &&
+                                StatsData.length > 0 &&
+                                StatsData.map((dataItem, index) => (
+                                    <CaseItem
+                                        key={index}
+                                        type={dataItem.Procedure}
+                                        duration={dataItem.DurationSurgeryState}
+                                        id={dataItem.Date_CaseID.split('_')[1]}
+                                        date={dataItem.StartingTime.split(' ')[0]}
+                                        time={dataItem.StartingTime.split(' ')[1]}
+                                    />
+                                ))}
                         </ScrollView>
                     </View>
                 </View>
             </View>
         </>
-    )
+    );
 }

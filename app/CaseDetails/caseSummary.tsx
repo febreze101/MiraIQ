@@ -30,31 +30,31 @@ export default function CaseSummary() {
                 >
                     <View>
                         <Text
-                            style={{ fontWeight: 'bold', marginBottom: 32, color: colorScheme === 'dark' ? Colors.dark.colors.secondaryText : Colors.light.colors.secondaryText }}
+                            style={{ fontWeight: 'bold', marginBottom: 32, color: colorScheme === 'dark' ? Colors.dark.colors.secondaryText : Colors.light.colors.secondaryText,fontFamily: 'Poppins_500Medium', }}
                             variant="headlineSmall"
                             
                         >
                             SUMMARY
                         </Text>
                         <Text
-                            style={{ fontWeight: 'bold', color: 'white' }}
+                            style={{ fontWeight: 'bold', color: 'white', fontFamily: 'Poppins_500Medium', marginBottom: 8 }}
                             variant="displayMedium"
                         >
                             Sigmoid Colectomy
                         </Text>
                         <Text
-                            style={{ fontWeight: 'bold', color: '#757575' }}
+                            style={{ fontWeight: 'bold', color: '#757575', fontFamily: 'Poppins_500Medium', }}
                             variant="bodyLarge"
                         >
                             Procedure
                         </Text>
                     </View>
                     <View style={{}}>
-                        <Text style={{ color: colorScheme === 'dark' ? Colors.dark.colors.secondaryText : Colors.light.colors.secondaryText }} variant="headlineSmall" >
+                        <Text style={{ color: colorScheme === 'dark' ? Colors.dark.colors.secondaryText : Colors.light.colors.secondaryText, fontFamily: 'Poppins_500Medium', }} variant="headlineSmall" >
                             08/09/21
                         </Text>
-                        <Text style={{ color: '#757575' }} variant="headlineSmall">
-                            8:41 Am
+                        <Text style={{ color: '#757575', fontFamily: 'Poppins_500Medium', }} variant="headlineSmall">
+                            8:41 AM
                         </Text>
                     </View>
                 </View>
@@ -70,18 +70,18 @@ export default function CaseSummary() {
                         }}
                     >
                         <View>
-                            <Text variant="headlineMedium">R4G303</Text>
+                            <Text variant="headlineMedium" style={{fontFamily: 'Poppins_500Medium'}}>R4G303</Text>
                             <Text
-                                style={{ fontWeight: 'bold', color: '#757575' }}
+                                style={{ fontWeight: 'bold', color: '#757575', fontFamily: 'Poppins_500Medium', }}
                                 variant="bodyLarge"
                             >
                                 Case ID
                             </Text>
                         </View>
                         <View style={{ marginLeft: 32 }}>
-                            <Text variant="headlineMedium">49 min</Text>
+                            <Text variant="headlineMedium" style={{fontFamily: 'Poppins_500Medium',}}>49 min</Text>
                             <Text
-                                style={{ fontWeight: 'bold', color: '#757575' }}
+                                style={{ fontWeight: 'bold', color: '#757575', fontFamily: 'Poppins_500Medium', }}
                                 variant="bodyLarge"
                             >
                                 Duration
@@ -111,9 +111,9 @@ export default function CaseSummary() {
                                 // borderColor: 'beige'
                             }}
                         >
-                            <Text variant="headlineSmall">Teaching Case</Text>
+                            <Text variant="headlineSmall" style={{fontFamily: 'Poppins_500Medium',}}>Teaching Case</Text>
                             <Text
-                                style={{ fontWeight: 'bold', color: '#757575' }}
+                                style={{ fontWeight: 'bold', color: '#757575', fontFamily: 'Poppins_500Medium', }}
                                 variant="bodyLarge"
                             >
                                 Case Type
@@ -124,13 +124,14 @@ export default function CaseSummary() {
                                 flex: 1,
                                 width: '50%',
                                 alignItems: 'flex-start',
+                                
                                 // borderWidth: 5,
                                 // borderColor: 'pink',
                             }}
                         >
-                            <Text variant="headlineSmall">Complex</Text>
+                            <Text variant="headlineSmall" style={{fontFamily: 'Poppins_500Medium',}}>Complex</Text>
                             <Text
-                                style={{ fontWeight: 'bold', color: '#757575' }}
+                                style={{ fontWeight: 'bold', color: '#757575', fontFamily: 'Poppins_500Medium', }}
                                 variant="bodyLarge"
                             >
                                 Complexity
@@ -148,6 +149,7 @@ export default function CaseSummary() {
                             justifyContent: 'space-between',
                             marginTop: 16,
                             alignContent: 'center',
+                            
                             // borderColor: 'red'
                         }}
                     >
@@ -160,9 +162,9 @@ export default function CaseSummary() {
                                 // borderColor: 'beige'
                             }}
                         >
-                            <Text variant="headlineSmall">Malignant</Text>
+                            <Text variant="headlineSmall" style={{fontFamily: 'Poppins_500Medium',}}>Malignant</Text>
                             <Text
-                                style={{ fontWeight: 'bold', color: '#757575' }}
+                                style={{ fontWeight: 'bold', color: '#757575', fontFamily: 'Poppins_500Medium', }}
                                 variant="bodyLarge"
                             >
                                 Tumor Type
@@ -177,9 +179,9 @@ export default function CaseSummary() {
                                 // borderColor: 'pink',
                             }}
                         >
-                            <Text variant="headlineSmall">123</Text>
+                            <Text variant="headlineSmall" style={{fontFamily: 'Poppins_500Medium',}}>123</Text>
                             <Text
-                                style={{ fontWeight: 'bold', color: '#757575' }}
+                                style={{ fontWeight: 'bold', color: '#757575', fontFamily: 'Poppins_500Medium', }}
                                 variant="bodyLarge"
                             >
                                 BMI
@@ -189,7 +191,7 @@ export default function CaseSummary() {
 
                     {/* Edit Notes Button */}
                     <View style={{ marginTop: 16 }}>
-                        <Button mode="outlined">Edit Notes</Button>
+                        <Button mode="outlined" labelStyle={{fontFamily: 'Poppins_500Medium',}}>Edit Notes</Button>
                     </View>
 
                     {/* Divider */}
@@ -199,7 +201,7 @@ export default function CaseSummary() {
                 {/* Details Section */}
                 <View style={{ display: 'flex' }}>
                     <Text
-                        style={{ fontWeight: 'bold', color: colorScheme === 'dark' ? Colors.dark.colors.secondaryText : Colors.light.colors.secondaryText, marginBottom: 16 }}
+                        style={{ fontWeight: 'bold', color: colorScheme === 'dark' ? Colors.dark.colors.secondaryText : Colors.light.colors.secondaryText, marginBottom: 16, fontFamily: 'Poppins_500Medium', }}
                         variant="headlineSmall"
                     >
                         DETAILS
@@ -228,18 +230,18 @@ export default function CaseSummary() {
                             }}
                         >
                             <View style={{ flexDirection: 'row', alignItems: 'flex-end' }}>
-                                <Text variant="headlineLarge" style={{ fontWeight: 'bold' }}>
+                                <Text variant="headlineLarge" style={{ fontWeight: 'bold', fontFamily: 'Poppins_500Medium', }}>
                                     18.66{' '}
                                 </Text>
                                 <Text
                                     variant="headlineSmall"
-                                    style={{ alignSelf: 'flex-end', color: '#757575' }}
+                                    style={{ alignSelf: 'flex-end', color: '#757575', fontFamily: 'Poppins_500Medium', }}
                                 >
                                     mm/s
                                 </Text>
                             </View>
                             <Text
-                                style={{ fontWeight: 'bold', color: '#757575' }}
+                                style={{ fontWeight: 'bold', color: '#757575', fontFamily: 'Poppins_500Medium', }}
                                 variant="bodyLarge"
                             >
                                 Average Speed Left
@@ -255,18 +257,18 @@ export default function CaseSummary() {
                             }}
                         >
                             <View style={{ flexDirection: 'row', alignItems: 'flex-end' }}>
-                                <Text variant="headlineLarge" style={{ fontWeight: 'bold' }}>
+                                <Text variant="headlineLarge" style={{ fontWeight: 'bold', fontFamily: 'Poppins_500Medium', }}>
                                     18.81{' '}
                                 </Text>
                                 <Text
                                     variant="headlineSmall"
-                                    style={{ alignSelf: 'flex-end', color: '#757575' }}
+                                    style={{ alignSelf: 'flex-end', color: '#757575', fontFamily: 'Poppins_500Medium', }}
                                 >
                                     mm/s
                                 </Text>
                             </View>
                             <Text
-                                style={{ fontWeight: 'bold', color: '#757575' }}
+                                style={{ fontWeight: 'bold', color: '#757575', fontFamily: 'Poppins_500Medium', }}
                                 variant="bodyLarge"
                             >
                                 Average Speed Right
@@ -297,18 +299,18 @@ export default function CaseSummary() {
                             }}
                         >
                             <View style={{ flexDirection: 'row', alignItems: 'flex-end' }}>
-                                <Text variant="headlineLarge" style={{ fontWeight: 'bold' }}>
+                                <Text variant="headlineLarge" style={{ fontWeight: 'bold', fontFamily: 'Poppins_500Medium', }}>
                                     0.86{' '}
                                 </Text>
                                 <Text
                                     variant="headlineSmall"
-                                    style={{ alignSelf: 'flex-end', color: '#757575' }}
+                                    style={{ alignSelf: 'flex-end', color: '#757575', fontFamily: 'Poppins_500Medium', }}
                                 >
                                     cycles/min
                                 </Text>
                             </View>
                             <Text
-                                style={{ fontWeight: 'bold', color: '#757575' }}
+                                style={{ fontWeight: 'bold', color: '#757575', fontFamily: 'Poppins_500Medium', }}
                                 variant="bodyLarge"
                             >
                                 Monopolar
@@ -324,18 +326,18 @@ export default function CaseSummary() {
                             }}
                         >
                             <View style={{ flexDirection: 'row', alignItems: 'flex-end' }}>
-                                <Text variant="headlineLarge" style={{ fontWeight: 'bold' }}>
+                                <Text variant="headlineLarge" style={{ fontWeight: 'bold', fontFamily: 'Poppins_500Medium', }}>
                                     2.08{' '}
                                 </Text>
                                 <Text
                                     variant="headlineSmall"
-                                    style={{ alignSelf: 'flex-end', color: '#757575' }}
+                                    style={{ alignSelf: 'flex-end', color: '#757575', fontFamily: 'Poppins_500Medium', }}
                                 >
                                     cycles/min
                                 </Text>
                             </View>
                             <Text
-                                style={{ fontWeight: 'bold', color: '#757575' }}
+                                style={{ fontWeight: 'bold', color: '#757575', fontFamily: 'Poppins_500Medium', }}
                                 variant="bodyLarge"
                             >
                                 Bipolar
@@ -351,6 +353,7 @@ export default function CaseSummary() {
                             color: colorScheme === 'dark' ? Colors.dark.colors.secondaryText : Colors.light.colors.secondaryText,
                             marginBottom: 16,
                             marginTop: 32,
+                            fontFamily: 'Poppins_500Medium',
                         }}
                         variant="headlineSmall"
                     >
@@ -380,18 +383,18 @@ export default function CaseSummary() {
                             }}
                         >
                             <View style={{ flexDirection: 'row', alignItems: 'flex-end' }}>
-                                <Text variant="headlineLarge" style={{ fontWeight: 'bold' }}>
+                                <Text variant="headlineLarge" style={{ fontWeight: 'bold', fontFamily: 'Poppins_500Medium', }}>
                                     85.30{' '}
                                 </Text>
                                 <Text
                                     variant="headlineSmall"
-                                    style={{ alignSelf: 'flex-end', color: '#757575' }}
+                                    style={{ alignSelf: 'flex-end', color: '#757575', fontFamily: 'Poppins_500Medium', }}
                                 >
                                     mm
                                 </Text>
                             </View>
                             <Text
-                                style={{ fontWeight: 'bold', color: '#757575' }}
+                                style={{ fontWeight: 'bold', color: '#757575', fontFamily: 'Poppins_500Medium', }}
                                 variant="bodyLarge"
                             >
                                 Left X
@@ -407,18 +410,18 @@ export default function CaseSummary() {
                             }}
                         >
                             <View style={{ flexDirection: 'row', alignItems: 'flex-end' }}>
-                                <Text variant="headlineLarge" style={{ fontWeight: 'bold' }}>
+                                <Text variant="headlineLarge" style={{ fontWeight: 'bold', fontFamily: 'Poppins_500Medium', }}>
                                     92.78{' '}
                                 </Text>
                                 <Text
                                     variant="headlineSmall"
-                                    style={{ alignSelf: 'flex-end', color: '#757575' }}
+                                    style={{ alignSelf: 'flex-end', color: '#757575', fontFamily: 'Poppins_500Medium', }}
                                 >
                                     mm
                                 </Text>
                             </View>
                             <Text
-                                style={{ fontWeight: 'bold', color: '#757575' }}
+                                style={{ fontWeight: 'bold', color: '#757575', fontFamily: 'Poppins_500Medium', }}
                                 variant="bodyLarge"
                             >
                                 Right X
@@ -449,18 +452,18 @@ export default function CaseSummary() {
                             }}
                         >
                             <View style={{ flexDirection: 'row', alignItems: 'flex-end' }}>
-                                <Text variant="headlineLarge" style={{ fontWeight: 'bold' }}>
+                                <Text variant="headlineLarge" style={{ fontWeight: 'bold', fontFamily: 'Poppins_500Medium', }}>
                                     0.86{' '}
                                 </Text>
                                 <Text
                                     variant="headlineSmall"
-                                    style={{ alignSelf: 'flex-end', color: '#757575' }}
+                                    style={{ alignSelf: 'flex-end', color: '#757575', fontFamily: 'Poppins_500Medium', }}
                                 >
                                     mm
                                 </Text>
                             </View>
                             <Text
-                                style={{ fontWeight: 'bold', color: '#757575' }}
+                                style={{ fontWeight: 'bold', color: '#757575', fontFamily: 'Poppins_500Medium', }}
                                 variant="bodyLarge"
                             >
                                 Left Y
@@ -476,18 +479,18 @@ export default function CaseSummary() {
                             }}
                         >
                             <View style={{ flexDirection: 'row', alignItems: 'flex-end' }}>
-                                <Text variant="headlineLarge" style={{ fontWeight: 'bold' }}>
+                                <Text variant="headlineLarge" style={{ fontWeight: 'bold', fontFamily: 'Poppins_500Medium', }}>
                                     2.08{' '}
                                 </Text>
                                 <Text
                                     variant="headlineSmall"
-                                    style={{ alignSelf: 'flex-end', color: '#757575' }}
+                                    style={{ alignSelf: 'flex-end', color: '#757575', fontFamily: 'Poppins_500Medium', }}
                                 >
                                     mm
                                 </Text>
                             </View>
                             <Text
-                                style={{ fontWeight: 'bold', color: '#757575' }}
+                                style={{ fontWeight: 'bold', color: '#757575', fontFamily: 'Poppins_500Medium', }}
                                 variant="bodyLarge"
                             >
                                 Right Y

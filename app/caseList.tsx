@@ -1,12 +1,17 @@
-import { ScrollView, View, useColorScheme } from "react-native"
-import React, { useState } from "react"
-import { SegmentedButtons, Text, ToggleButton, useTheme } from "react-native-paper"
-import { Dropdown, DropdownInput } from "react-native-paper-dropdown"
-import CaseItem from "@/components/CaseItem"
-import { Colors } from "@/constants/Colors"
-import { useEffect } from "react"
+import { ScrollView, View, useColorScheme } from 'react-native';
+import React, { useState } from 'react';
+import {
+    SegmentedButtons,
+    Text,
+    ToggleButton,
+    useTheme,
+} from 'react-native-paper';
+import { Dropdown, DropdownInput } from 'react-native-paper-dropdown';
+import CaseItem from '@/components/CaseItem';
+import { Colors } from '@/constants/Colors';
+import { useEffect } from 'react';
 
-import StatsData from '../assets/Data/ScoreDataStats.json'
+import StatsData from '../assets/Data/ScoreDataStats.json';
 
 // const Drawer = createDrawerNavigator()
 const OPTIONS = [
@@ -14,145 +19,177 @@ const OPTIONS = [
     { label: 'Procedure Type', value: 'procedure' },
     { label: 'Duration (high to low)', value: 'high2low' },
     { label: 'Duration (low to high)', value: 'low2high' },
-  ];
+];
 
 export default function CaseList() {
-    
     const colorScheme = useColorScheme();
 
     const [value, setValue] = React.useState<string>('thisMonth');
     const [dropdownOption, setDropdownOption] = useState<string>();
 
     console.log(JSON.stringify(StatsData.length));
-    
 
-    
     return (
         <>
-        <View style={{ flex: 1, backgroundColor: colorScheme === "dark" ? Colors.dark.colors.surface : Colors.light.colors.surface }} >
             <View
                 style={{
                     flex: 1,
-                    flexDirection: 'column',
-                    justifyContent: "flex-start",
-                    alignItems: "center",
+                    backgroundColor:
+                        colorScheme === 'dark'
+                            ? Colors.dark.colors.surface
+                            : Colors.light.colors.surface,
                 }}
             >
-                <Text style={{ fontWeight: 'bold', marginTop: 32, marginBottom: 32, color: colorScheme === 'dark' ? Colors.dark.colors.secondaryText : Colors.light.colors.secondaryText, }} variant="labelLarge" >CASE LIST</Text>
                 <View
                     style={{
-                        width: '90%'
+                        flex: 1,
+                        flexDirection: 'column',
+                        justifyContent: 'flex-start',
+                        alignItems: 'center',
                     }}
                 >
-                    {/* Case summary info */}
+                    <Text
+                        style={{
+                            fontWeight: 'bold',
+                            marginTop: 32,
+                            marginBottom: 32,
+                            color:
+                                colorScheme === 'dark'
+                                    ? Colors.dark.colors.secondaryText
+                                    : Colors.light.colors.secondaryText,
+                        }}
+                        variant="labelLarge"
+                    >
+                        CASE LIST
+                    </Text>
                     <View
                         style={{
-                            display: 'flex',
-                            flexDirection: 'row',
-                            width: '100%',
-                            justifyContent: 'space-evenly',
-                            marginBottom: 16
+                            width: '90%',
                         }}
                     >
+                        {/* Case summary info */}
                         <View
                             style={{
-                                justifyContent: "center",
-                                alignItems: "center",
+                                display: 'flex',
+                                flexDirection: 'row',
+                                width: '100%',
+                                justifyContent: 'space-evenly',
+                                marginBottom: 16,
                             }}
                         >
-                            <Text style={{ fontWeight: 'bold' }} variant="displayMedium">30 min</Text>
-                            <Text style={{ }} >AVG. case time</Text>
+                            <View
+                                style={{
+                                    justifyContent: 'center',
+                                    alignItems: 'center',
+                                }}
+                            >
+                                <Text
+                                    style={{ fontWeight: 'bold' }}
+                                    variant="displayMedium"
+                                >
+                                    30 min
+                                </Text>
+                                <Text style={{}}>AVG. case time</Text>
+                            </View>
+                            <View
+                                style={{
+                                    justifyContent: 'center',
+                                    alignItems: 'center',
+                                }}
+                            >
+                                <Text
+                                    style={{ fontWeight: 'bold' }}
+                                    variant="displayMedium"
+                                >
+                                    100
+                                </Text>
+                                <Text style={{}}>Total Cases</Text>
+                            </View>
                         </View>
+
+                        {/* TODOL add Bargraph */}
+                        {/* Bargraph Section */}
                         <View
                             style={{
-                                justifyContent: "center",
-                                alignItems: "center",
+                                alignItems: 'center',
+                                width: '100%',
+                                marginTop: 16,
+                                marginBottom: 16,
                             }}
                         >
-                            <Text style={{ fontWeight: 'bold' }} variant="displayMedium">100</Text>
-                            <Text style={{  }} >Total Cases</Text>
+                            <Text
+                                style={{ fontWeight: 'bold' }}
+                                variant="headlineLarge"
+                            >
+                                *** Placeholder for barGraph ***
+                            </Text>
                         </View>
-                    </View>
 
-
-                    {/* TODOL add Bargraph */}
-                    {/* Bargraph Section */}
-                    <View
-                        style={{
-                            alignItems: "center",
-                            width: '100%',
-                            marginTop: 16,
-                            marginBottom: 16
-                        }}
-                    >
-                        <Text style={{  fontWeight: 'bold' }} variant="headlineLarge">*** Placeholder for barGraph ***</Text>
-                    </View>
-
-                    {/* Case Selection */}
-                    <View
-                        style={{
-                            width: '100%',
-                            marginBottom: 16
-                        }}
-                    >
-                        <SegmentedButtons
-                            value={value}
-                            onValueChange={setValue}
-                            buttons={[
-                                {
-                                    value: 'allTime',
-                                    label: 'All Time',
-                                    uncheckedColor: 'rgba(0, 167, 211, 1)',
-                                    style: {
-                                        // backgroundColor: 'rgba(0, 167, 211, 1)'
-                                    }
-                                },
-                                {
-                                    value: 'thisMonth',
-                                    label: 'This Month',
-                                    uncheckedColor: 'rgba(0, 167, 211, 1)'
-                                },
-                                { 
-                                    value: 'thisWeek', 
-                                    label: 'This Week', 
-                                    uncheckedColor: 'rgba(0, 167, 211, 1)'
-                                },
-                            ]}
+                        {/* Case Selection */}
+                        <View
                             style={{
-                                marginBottom: 24
+                                width: '100%',
+                                marginBottom: 16,
                             }}
-                            
-                        />    
-                        <Dropdown 
-                            label='Sort by'
-                            placeholder="Sort by"
-                            options={OPTIONS}
-                            value={dropdownOption}
-                            onSelect={setDropdownOption}
-                        />                
+                        >
+                            <SegmentedButtons
+                                value={value}
+                                onValueChange={setValue}
+                                buttons={[
+                                    {
+                                        value: 'allTime',
+                                        label: 'All Time',
+                                        uncheckedColor: 'rgba(0, 167, 211, 1)',
+                                        style: {
+                                            // backgroundColor: 'rgba(0, 167, 211, 1)'
+                                        },
+                                    },
+                                    {
+                                        value: 'thisMonth',
+                                        label: 'This Month',
+                                        uncheckedColor: 'rgba(0, 167, 211, 1)',
+                                    },
+                                    {
+                                        value: 'thisWeek',
+                                        label: 'This Week',
+                                        uncheckedColor: 'rgba(0, 167, 211, 1)',
+                                    },
+                                ]}
+                                style={{
+                                    marginBottom: 24,
+                                }}
+                            />
+                            <Dropdown
+                                label="Sort by"
+                                placeholder="Sort by"
+                                options={OPTIONS}
+                                value={dropdownOption}
+                                onSelect={setDropdownOption}
+                            />
+                        </View>
+
+                        {/* Case List */}
+                        <ScrollView style={{ flexGrow: 1 }}>
+                            {StatsData &&
+                                StatsData.length > 0 &&
+                                StatsData.map((dataItem, index) => (
+                                    <CaseItem
+                                        key={index}
+                                        type={dataItem.Procedure}
+                                        duration={dataItem.DurationSurgeryState}
+                                        id={dataItem.Date_CaseID.split('_')[1]} // Split on the underscore and use the second part
+                                        date={
+                                            dataItem.StartingTime.split(' ')[0]
+                                        }
+                                        time={
+                                            dataItem.StartingTime.split(' ')[1]
+                                        }
+                                    />
+                                ))}
+                        </ScrollView>
                     </View>
-
-                    {/* Case List */}
-                    <ScrollView  style={{ flexGrow: 1 }}>
-                        
-
-                        <CaseItem type={'Sigmoid Colectomy'} duration={100} id={'RG7100'} date="09/21/33" time='9:21 AM' />
-                        <CaseItem type={'Sigmoid Colectomy'} duration={100} id={'RG7100'} date="09/21/33" time='9:21 AM' />
-                        <CaseItem type={'Sigmoid Colectomy'} duration={100} id={'RG7100'} date="09/21/33" time='9:21 AM' />
-                        <CaseItem type={'Sigmoid Colectomy'} duration={100} id={'RG7100'} date="09/21/33" time='9:21 AM' />
-                        <CaseItem type={'Sigmoid Colectomy'} duration={100} id={'RG7100'} date="09/21/33" time='9:21 AM' />
-                        <CaseItem type={'Sigmoid Colectomy'} duration={100} id={'RG7100'} date="09/21/33" time='9:21 AM' />
-                        <CaseItem type={'Sigmoid Colectomy'} duration={100} id={'RG7100'} date="09/21/33" time='9:21 AM' />
-                        <CaseItem type={'Sigmoid Colectomy'} duration={100} id={'RG7100'} date="09/21/33" time='9:21 AM' />
-                        <CaseItem type={'Sigmoid Colectomy'} duration={100} id={'RG7100'} date="09/21/33" time='9:21 AM' />
-                        <CaseItem type={'Sigmoid Colectomy'} duration={100} id={'RG7100'} date="09/21/33" time='9:21 AM' />
-                        <CaseItem type={'Sigmoid Colectomy'} duration={100} id={'RG7100'} date="09/21/33" time='9:21 AM' />
-                        <CaseItem type={'Sigmoid Colectomy'} duration={100} id={'RG7100'} date="09/21/33" time='9:21 AM' />
-                        <CaseItem type={'Sigmoid Colectomy'} duration={100} id={'RG7100'} date="09/21/33" time='9:21 AM' />
-                    </ScrollView>
                 </View>
             </View>
-        </View>
         </>
-    )
+    );
 }
